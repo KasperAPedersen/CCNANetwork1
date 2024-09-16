@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#swp {
+    width: 1080px;
+    margin: 0 auto;
+}
+
+
+.card>div {
+    display: none;
+}
+
+label>span {
+    font-size: 0.7em;
+    color: gray;
+}

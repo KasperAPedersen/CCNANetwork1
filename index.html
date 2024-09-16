@@ -1,0 +1,340 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="inc/styling/css/index.css" type="text/css">
+    </head>
+    <body>
+        <div class="w3-container">
+
+            <!-- Common -->
+            <section class="w3-container w3-card w3-margin-bottom">
+                <h1 class="w3-center">Common</h1>
+
+                <div class="w3-row w3-margin-bottom">
+                    <div class="w3-half w3-container w3-card card w3-margin">
+                        <h2 class="w3-green w3-padding" onclick="toggle(this);">Basic Configuration</h2>
+                        <div>
+                            <form>
+                                <label>Hostname</label>
+                                <input class="w3-input" type="text" id="basicRouterConfHostname">
+
+                                <label>Password 1</label>
+                                <input class="w3-input" type="text" id="basicRouterConfPword1">
+                                
+                                <label>Password 2</label>
+                                <input class="w3-input" type="text" id="basicRouterConfPword2">
+                                
+                                <label>Banner</label>
+                                <input class="w3-input" type="text" id="basicRouterConfBanner">
+                            
+                            </form>
+                            <br>
+                            <p>configure terminal<br>
+                                hostname <span class="hostname">HOSTNAME</span><br>
+                                enable secret <span class="password1">PWORD1</span><br>
+                                line console 0<br>
+                                password <span class="password2">PWORD2</span><br>
+                                login<br>
+                                exit<br>
+                                line vty 0 4<br>
+                                password <span class="password2"></span><br>
+                                login<br>
+                                exit<br>
+                                service password-encryption<br>
+                                banner motd #<span class="banner">BANNER</span>#<br>
+                                end<br>
+                                copy running-config startup-config</p>
+                        </div>
+                    </div>
+
+                    <div class="w3-rest w3-container w3-card card w3-margin">
+                        <h2 class="w3-green w3-padding" onclick="toggle(this);">Interface Configuration</h2>
+                        <div>
+                            <form>
+                                <label>Interface</label>
+                                <input class="w3-input" type="text" id="ConfigureRouterInterfacesName">
+
+                                <label>IPv4</label>
+                                <input class="w3-input" type="text" id="ConfigureRouterInterfacesIp">
+                                
+                                <label>Subnet</label>
+                                <input class="w3-input" type="text" id="ConfigureRouterInterfacesSubnet">
+                                
+                                <label>Description</label>
+                                <input class="w3-input" type="text" id="ConfigureRouterInterfacesDesc">
+                            
+                            </form>
+                            <br>
+                            <p>configure terminal<br>
+                                interface <span class="name">NAME</span><br>
+                                ip address <span class="ip">IP</span> <span class="subnet">SUBNET</span><br>
+                                description <span class="desc">DESC</span><br>
+                                no shutdown<br>
+                                exit</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- common end -->
+
+            <!-- vlan -->
+            <section class="w3-container w3-card w3-margin-bottom">
+                <h1 class="w3-center">Vlan</h1>
+
+                <div class="w3-row w3-margin-bottom">
+                    <div class="w3-half w3-container w3-card card w3-margin">
+                        <h2 class="w3-green w3-padding" onclick="toggle(this);">Create VLAN</h2>
+                        <div>
+                            <form>
+                                <label>ID</label>
+                                <input class="w3-input" type="text" id="vlanConfigurationID">
+
+                                <label>Name</label>
+                                <input class="w3-input" type="text" id="vlanConfigurationName">
+                            
+                            </form>
+                            <br>
+                            <p>
+                                configure terminal<br>
+                                vlan <span class="id">ID</span><br>
+                                name <span class="name">NAME</span><br>
+                                end
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="w3-rest w3-container card w3-card w3-margin">
+                        <h2 class="w3-green w3-padding" onclick="toggle(this);">VLAN Port Assignment</h2>
+                        <div>
+                            <form>
+                                <label>Interface<br><span></span></label>
+                                <input class="w3-input" type="text" id="vlanPortAssignmentInt">
+
+                                <label>mode<br><span></span></label>
+                                <input class="w3-input" type="text" id="vlanPortAssignmentMode">
+                                
+                                <label>id<br><span></span></label>
+                                <input class="w3-input" type="text" id="vlanPortAssignmentId">
+                            </form>
+                            <br>
+                            <p>
+                                configure terminal<br>
+                                interface <span class="interface">INT</span><br>
+                                switchport mode <span class="mode">MODE</span><br>
+                                switchport access vlan <span class="id">ID</span><br>
+                                end
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- vlan end -->
+
+            <!-- Switch Sec -->
+            <section class="w3-container w3-card">
+                <h1 class="w3-center">Switch Security</h1>
+
+                <div class="w3-row w3-margin-bottom">
+                    <div class="w3-half w3-container w3-card card w3-margin">
+                        <h2 class="w3-green w3-padding" onclick="toggle(this);">Enable Port Security</h2>
+                        <div>
+                            <form>
+                                <label>Interface<br><span></span></label>
+                                <input class="w3-input" type="text" id="enablePortSecurityInterface">
+                            </form>
+                            <br>
+                            <p>
+                                configure terminal<br>
+                                interface <span class="interface">INTERFACE</span><br>
+                                switchport port-security<br>
+                                switchport mode access<br>
+                                switchport port-security<br>
+                                end
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="w3-rest w3-container card w3-card w3-margin">
+                        <h2 class="w3-green w3-padding" onclick="toggle(this);">Limit MAC Addresses</h2>
+                        <div>
+                            <form>
+                                <label>Interface<br><span></span></label>
+                                <input class="w3-input" type="text" id="LimitMACAddressInterface">
+
+                                <label>Maximum<br><span></span></label>
+                                <input class="w3-input" type="text" id="LimitMACAddressMax">
+
+                                <label>Mac<br><span></span></label>
+                                <input class="w3-input" type="text" id="LimitMACAddressMac">
+                            </form>
+                            <br>
+                            <p>
+                                configure terminal<br>
+                                interface <span class="interface">INTERFACE</span><br>
+                                switchport mode access<br>
+                                switchport port-security<br>
+                                switchport port-security maximum <span class="max">MAX</span><br>
+                                switchport port-security mac-address <span class="mac">MAC</span><br>
+                                switchport port-security mac-address sticky<br>
+                                end
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w3-row w3-margin-bottom">
+                    <div class="w3-half w3-container w3-card card w3-margin">
+                        <h2 class="w3-green w3-padding" onclick="toggle(this);">Port Security Aging</h2>
+                        <div>
+                            <form>
+                                <label>Time<br><span></span></label>
+                                <input class="w3-input" type="text" id="PortSecurityAgingTime">
+
+                                <label>Type<br><span>absolute | inactivity</span></label>
+                                <input class="w3-input" type="text" id="PortSecurityAgingType">
+                            </form>
+                            <br>
+                            <p>
+                                configure terminal<br>
+                                interface <span class="interface">INTERFACE</span><br>
+                                switchport port-security aging time <span class="time">TIME</span><br>
+                                switchport port-security aging type <span class="type">TYPE</span><br>
+                                end
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="w3-rest w3-container card w3-card w3-margin">
+                        <h2 class="w3-green w3-padding" onclick="toggle(this);">Set Violation Mode</h2>
+                        <div>
+                            <form>
+                                <label>Interface<br><span></span></label>
+                                <input class="w3-input" type="text" id="SetViolationModeInterface">
+
+                                <label>Mode<br><span>shutdown | restrict | protect</span></label>
+                                <input class="w3-input" type="text" id="SetViolationModeMode">
+                            </form>
+                            <br>
+                            <p>
+                                configure terminal<br>
+                                interface <span class="interface">INTERFACE</span><br>
+                                switchport port-security Violation <span class="mode">MODE</span><br>
+                                end
+                            </p>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="w3-row w3-margin-bottom">
+                    <div class="w3-half w3-container w3-card card w3-margin">
+                        <h2 class="w3-green w3-padding" onclick="toggle(this);">DHCP Snooping</h2>
+                        <div>
+                            <form>
+                                <label>Trusted interfaces<br><span></span></label>
+                                <input class="w3-input" type="text" id="DHCPSnoopingTrustedInterface">
+
+                                <label>Un-trusted interfaces<br><span></span></label>
+                                <input class="w3-input" type="text" id="DHCPSnoopingUnTrustedInterface">
+
+                                <label>VLANs<br><span></span></label>
+                                <input class="w3-input" type="text" id="DHCPSnoopingVLANs">
+
+                                <label>Limit<br><span></span></label>
+                                <input class="w3-input" type="text" id="DHCPSnoopingLimit">
+                            </form>
+                            <br>
+                            <p>
+                                configure terminal<br>
+                                ip dhcp snooping<br>
+                                ip dhcp snooping vlan <span class="vlans">VLANs</span><br>
+                                interface <span class="trustedInterface">TRUSTED INT</span><br>
+                                ip dhcp snooping trust<br>
+                                interface <span class="untrustedInterface">UNTRUSTED INT</span><br>
+                                ip dhcp snooping limit rate <span class="limit">LIMIT</span><br>
+                                end
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="w3-rest w3-container card w3-card w3-margin">
+                        <h2 class="w3-green w3-padding" onclick="toggle(this);">PortFast (Interface)</h2>
+                        <div>
+                            <form>
+                                <label>Interface<br><span></span></label>
+                                <input class="w3-input" type="text" id="ConfigurePortFastInterface">
+                            </form>
+                            <br>
+                            <p>
+                                configure terminal<br>
+                                interface <span class="interface">INTERFACE</span><br>
+                                spanning-tree portfast<br>
+                                end
+                            </p>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="w3-row w3-margin-bottom">
+                    <div class="w3-half w3-container w3-card card w3-margin">
+                        <h2 class="w3-green w3-padding" onclick="toggle(this);">PortFast (Globally)</h2>
+                        <div>
+                            <form>
+                                
+                            </form>
+                            <br>
+                            <p>
+                                configure terminal<br>
+                                spanning-tree portfast default<br>
+                                end
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="w3-rest w3-container card w3-card w3-margin">
+                        <h2 class="w3-green w3-padding" onclick="toggle(this);">BPDU Guard (Interface)</h2>
+                        <div>
+                            <form>
+                                <label>Interface<br><span></span></label>
+                                <input class="w3-input" type="text" id="ConfigureBPDUGuardInterface">
+                            </form>
+                            <br>
+                            <p>
+                                configure terminal<br>
+                                interface <span class="interface">INTERFACE</span><br>
+                                spanning-tree bpduguard enable<br>
+                                end
+                            </p>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="w3-row w3-margin-bottom">
+                    <div class="w3-half w3-container w3-card card w3-margin">
+                        <h2 class="w3-green w3-padding" onclick="toggle(this);">BPDU Guard (Globally)</h2>
+                        <div>
+                            <form>
+                                
+                            </form>
+                            <br>
+                            <p>
+                                configure terminal<br>
+                                spanning-tree portfast bpduguard default<br>
+                                end
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            <!-- Switch sec end -->
+
+        </div>
+        <script src="inc/styling/js/index.js"></script>
+    </body>
+</html>
