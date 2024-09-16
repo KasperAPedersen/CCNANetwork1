@@ -4,12 +4,6 @@
     box-sizing: border-box;
 }
 
-#swp {
-    width: 1080px;
-    margin: 0 auto;
-}
-
-
 .card>div {
     display: none;
 }
