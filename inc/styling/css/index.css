@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+.card {
+    padding-bottom: 15px;
+}
+
 .card>div {
     display: none;
 }

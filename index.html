@@ -18,16 +18,16 @@
                         <h2 class="w3-green w3-padding" onclick="toggle(this);">Basic Configuration</h2>
                         <div>
                             <form>
-                                <label>Hostname</label>
+                                <label>Hostname<br><span></span></label>
                                 <input class="w3-input" type="text" id="basicRouterConfHostname">
 
-                                <label>Password 1</label>
+                                <label>Password 1<br><span>Line Console Password</span></label>
                                 <input class="w3-input" type="text" id="basicRouterConfPword1">
                                 
-                                <label>Password 2</label>
+                                <label>Password 2<br><span>Secret Password</span></label>
                                 <input class="w3-input" type="text" id="basicRouterConfPword2">
                                 
-                                <label>Banner</label>
+                                <label>Banner<br><span></span></label>
                                 <input class="w3-input" type="text" id="basicRouterConfBanner">
                             
                             </form>
@@ -54,16 +54,16 @@
                         <h2 class="w3-green w3-padding" onclick="toggle(this);">Interface Configuration</h2>
                         <div>
                             <form>
-                                <label>Interface</label>
+                                <label>Interface<br><span></span></label>
                                 <input class="w3-input" type="text" id="ConfigureRouterInterfacesName">
 
-                                <label>IPv4</label>
+                                <label>IPv4<br><span></span></label>
                                 <input class="w3-input" type="text" id="ConfigureRouterInterfacesIp">
                                 
-                                <label>Subnet</label>
+                                <label>Subnet<br><span></span></label>
                                 <input class="w3-input" type="text" id="ConfigureRouterInterfacesSubnet">
                                 
-                                <label>Description</label>
+                                <label>Description<br><span></span></label>
                                 <input class="w3-input" type="text" id="ConfigureRouterInterfacesDesc">
                             
                             </form>
@@ -89,10 +89,10 @@
                         <h2 class="w3-green w3-padding" onclick="toggle(this);">Create VLAN</h2>
                         <div>
                             <form>
-                                <label>ID</label>
+                                <label>ID<br><span>VLAN-ID</span></label>
                                 <input class="w3-input" type="text" id="vlanConfigurationID">
 
-                                <label>Name</label>
+                                <label>Name<br><span></span></label>
                                 <input class="w3-input" type="text" id="vlanConfigurationName">
                             
                             </form>
@@ -113,10 +113,10 @@
                                 <label>Interface<br><span></span></label>
                                 <input class="w3-input" type="text" id="vlanPortAssignmentInt">
 
-                                <label>mode<br><span></span></label>
+                                <label>mode<br><span>access | trunk | hybrid</span></label>
                                 <input class="w3-input" type="text" id="vlanPortAssignmentMode">
                                 
-                                <label>id<br><span></span></label>
+                                <label>id<br><span>VLAN-ID</span></label>
                                 <input class="w3-input" type="text" id="vlanPortAssignmentId">
                             </form>
                             <br>
@@ -164,7 +164,7 @@
                                 <label>Interface<br><span></span></label>
                                 <input class="w3-input" type="text" id="LimitMACAddressInterface">
 
-                                <label>Maximum<br><span></span></label>
+                                <label>Maximum<br><span>Max number of MAC Addresses</span></label>
                                 <input class="w3-input" type="text" id="LimitMACAddressMax">
 
                                 <label>Mac<br><span></span></label>
@@ -230,31 +230,17 @@
                 </div>
 
                 <div class="w3-row w3-margin-bottom">
+                    <!-- 1-->
                     <div class="w3-half w3-container w3-card card w3-margin">
-                        <h2 class="w3-green w3-padding" onclick="toggle(this);">DHCP Snooping</h2>
+                        <h2 class="w3-green w3-padding" onclick="toggle(this);">PortFast (Globally)</h2>
                         <div>
                             <form>
-                                <label>Trusted interfaces<br><span></span></label>
-                                <input class="w3-input" type="text" id="DHCPSnoopingTrustedInterface">
-
-                                <label>Un-trusted interfaces<br><span></span></label>
-                                <input class="w3-input" type="text" id="DHCPSnoopingUnTrustedInterface">
-
-                                <label>VLANs<br><span></span></label>
-                                <input class="w3-input" type="text" id="DHCPSnoopingVLANs">
-
-                                <label>Limit<br><span></span></label>
-                                <input class="w3-input" type="text" id="DHCPSnoopingLimit">
+                                
                             </form>
                             <br>
                             <p>
                                 configure terminal<br>
-                                ip dhcp snooping<br>
-                                ip dhcp snooping vlan <span class="vlans">VLANs</span><br>
-                                interface <span class="trustedInterface">TRUSTED INT</span><br>
-                                ip dhcp snooping trust<br>
-                                interface <span class="untrustedInterface">UNTRUSTED INT</span><br>
-                                ip dhcp snooping limit rate <span class="limit">LIMIT</span><br>
+                                spanning-tree portfast default<br>
                                 end
                             </p>
                         </div>
@@ -276,12 +262,14 @@
                             </p>
                         </div>
                     </div>
+
+                    
                     
                 </div>
 
                 <div class="w3-row w3-margin-bottom">
                     <div class="w3-half w3-container w3-card card w3-margin">
-                        <h2 class="w3-green w3-padding" onclick="toggle(this);">PortFast (Globally)</h2>
+                        <h2 class="w3-green w3-padding" onclick="toggle(this);">BPDU Guard (Globally)</h2>
                         <div>
                             <form>
                                 
@@ -289,7 +277,7 @@
                             <br>
                             <p>
                                 configure terminal<br>
-                                spanning-tree portfast default<br>
+                                spanning-tree portfast bpduguard default<br>
                                 end
                             </p>
                         </div>
@@ -316,20 +304,37 @@
 
                 <div class="w3-row w3-margin-bottom">
                     <div class="w3-half w3-container w3-card card w3-margin">
-                        <h2 class="w3-green w3-padding" onclick="toggle(this);">BPDU Guard (Globally)</h2>
+                        <h2 class="w3-green w3-padding" onclick="toggle(this);">DHCP Snooping</h2>
                         <div>
                             <form>
-                                
+                                <label>Trusted interfaces<br><span></span></label>
+                                <input class="w3-input" type="text" id="DHCPSnoopingTrustedInterface">
+    
+                                <label>Un-trusted interfaces<br><span></span></label>
+                                <input class="w3-input" type="text" id="DHCPSnoopingUnTrustedInterface">
+    
+                                <label>VLANs<br><span>VLAN-IDs</span></label>
+                                <input class="w3-input" type="text" id="DHCPSnoopingVLANs">
+    
+                                <label>Limit<br><span>Number of DHCP discovery messages per second</span></label>
+                                <input class="w3-input" type="text" id="DHCPSnoopingLimit">
                             </form>
                             <br>
                             <p>
                                 configure terminal<br>
-                                spanning-tree portfast bpduguard default<br>
+                                ip dhcp snooping<br>
+                                ip dhcp snooping vlan <span class="vlans">VLANs</span><br>
+                                interface <span class="trustedInterface">TRUSTED INT</span><br>
+                                ip dhcp snooping trust<br>
+                                interface <span class="untrustedInterface">UNTRUSTED INT</span><br>
+                                ip dhcp snooping limit rate <span class="limit">LIMIT</span><br>
                                 end
                             </p>
                         </div>
                     </div>
                 </div>
+
+                
 
             </section>
             <!-- Switch sec end -->

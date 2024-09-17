@@ -52,6 +52,8 @@ let listenArr = [
 function toggle(elem) {
     let container = elem.parentElement.getElementsByTagName('div');
     container[0].style.display = container[0].style.display == "block" ? "none" : "block";
+    
+    if(container[0].style.display == 'block') saveToClipboard(elem.parentElement.getElementsByTagName('div')[0]);
 }
 
 function setValue(c, v) {
@@ -69,6 +71,10 @@ function setListener(formField, resultField){
         
         setValue(children, formField);
     })
+}
+
+function saveToClipboard(elem) {
+    navigator.clipboard.writeText(elem.getElementsByTagName('p')[0].innerText);
 }
 
 for(let i = 0; i < listenArr.length; i++) {
