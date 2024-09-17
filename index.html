@@ -138,7 +138,7 @@
                 <h1 class="w3-center">Switch Security</h1>
 
                 <div class="w3-row w3-margin-bottom">
-                    <div class="w3-half w3-container w3-card card w3-margin">
+                    <div class="w3-third w3-container w3-card card w3-margin">
                         <h2 class="w3-green w3-padding" onclick="toggle(this);">Enable Port Security</h2>
                         <div>
                             <form>
@@ -157,7 +157,7 @@
                         </div>
                     </div>
 
-                    <div class="w3-rest w3-container card w3-card w3-margin">
+                    <div class="w3-third w3-container card w3-card w3-margin">
                         <h2 class="w3-green w3-padding" onclick="toggle(this);">Limit MAC Addresses</h2>
                         <div>
                             <form>
@@ -183,10 +183,8 @@
                             </p>
                         </div>
                     </div>
-                </div>
 
-                <div class="w3-row w3-margin-bottom">
-                    <div class="w3-half w3-container w3-card card w3-margin">
+                    <div class="w3-rest w3-container w3-card card w3-margin">
                         <h2 class="w3-green w3-padding" onclick="toggle(this);">Port Security Aging</h2>
                         <div>
                             <form>
@@ -206,8 +204,12 @@
                             </p>
                         </div>
                     </div>
+                </div>
 
-                    <div class="w3-rest w3-container card w3-card w3-margin">
+                <div class="w3-row w3-margin-bottom">
+                    
+
+                    <div class="w3-half w3-container card w3-card w3-margin">
                         <h2 class="w3-green w3-padding" onclick="toggle(this);">Set Violation Mode</h2>
                         <div>
                             <form>
@@ -226,84 +228,8 @@
                             </p>
                         </div>
                     </div>
-                    
-                </div>
 
-                <div class="w3-row w3-margin-bottom">
-                    <!-- 1-->
-                    <div class="w3-half w3-container w3-card card w3-margin">
-                        <h2 class="w3-green w3-padding" onclick="toggle(this);">PortFast (Globally)</h2>
-                        <div>
-                            <form>
-                                
-                            </form>
-                            <br>
-                            <p>
-                                configure terminal<br>
-                                spanning-tree portfast default<br>
-                                end
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="w3-rest w3-container card w3-card w3-margin">
-                        <h2 class="w3-green w3-padding" onclick="toggle(this);">PortFast (Interface)</h2>
-                        <div>
-                            <form>
-                                <label>Interface<br><span></span></label>
-                                <input class="w3-input" type="text" id="ConfigurePortFastInterface">
-                            </form>
-                            <br>
-                            <p>
-                                configure terminal<br>
-                                interface <span class="interface">INTERFACE</span><br>
-                                spanning-tree portfast<br>
-                                end
-                            </p>
-                        </div>
-                    </div>
-
-                    
-                    
-                </div>
-
-                <div class="w3-row w3-margin-bottom">
-                    <div class="w3-half w3-container w3-card card w3-margin">
-                        <h2 class="w3-green w3-padding" onclick="toggle(this);">BPDU Guard (Globally)</h2>
-                        <div>
-                            <form>
-                                
-                            </form>
-                            <br>
-                            <p>
-                                configure terminal<br>
-                                spanning-tree portfast bpduguard default<br>
-                                end
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="w3-rest w3-container card w3-card w3-margin">
-                        <h2 class="w3-green w3-padding" onclick="toggle(this);">BPDU Guard (Interface)</h2>
-                        <div>
-                            <form>
-                                <label>Interface<br><span></span></label>
-                                <input class="w3-input" type="text" id="ConfigureBPDUGuardInterface">
-                            </form>
-                            <br>
-                            <p>
-                                configure terminal<br>
-                                interface <span class="interface">INTERFACE</span><br>
-                                spanning-tree bpduguard enable<br>
-                                end
-                            </p>
-                        </div>
-                    </div>
-                    
-                </div>
-
-                <div class="w3-row w3-margin-bottom">
-                    <div class="w3-half w3-container w3-card card w3-margin">
+                    <div class="w3-rest w3-container w3-card card w3-margin">
                         <h2 class="w3-green w3-padding" onclick="toggle(this);">DHCP Snooping</h2>
                         <div>
                             <form>
@@ -332,6 +258,92 @@
                             </p>
                         </div>
                     </div>
+                    
+                </div>
+
+                <div class="w3-row w3-margin-bottom">
+                    <!-- 1-->
+                    <div class="w3-half w3-card w3-margin">
+                        <h2 class="w3-center">PortFast</h2>
+                        <div class="w3-row w3-margin-bottom">
+                            <div class="w3-half w3-container w3-card card w3-margin">
+                                <h2 class="w3-green w3-padding" onclick="toggle(this);">Globally</h2>
+                                <div>
+                                    <br>
+                                    <p>
+                                        configure terminal<br>
+                                        spanning-tree portfast default<br>
+                                        end
+                                    </p>
+                                </div>
+                            </div>
+        
+                            <div class="w3-rest w3-container card w3-card w3-margin">
+                                <h2 class="w3-green w3-padding" onclick="toggle(this);">Interface</h2>
+                                <div>
+                                    <form>
+                                        <label>Interface<br><span></span></label>
+                                        <input class="w3-input" type="text" id="ConfigurePortFastInterface">
+                                    </form>
+                                    <br>
+                                    <p>
+                                        configure terminal<br>
+                                        interface <span class="interface">INTERFACE</span><br>
+                                        spanning-tree portfast<br>
+                                        end
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w3-rest w3-card w3-margin">
+                        <h2 class="w3-center">BPDU Guard</h2>
+                        <div class="w3-row w3-margin-bottom">
+                            <div class="w3-half w3-container w3-card card w3-margin">
+                                <h2 class="w3-green w3-padding" onclick="toggle(this);">Globally</h2>
+                                <div>
+                                    <form>
+                                        
+                                    </form>
+                                    <br>
+                                    <p>
+                                        configure terminal<br>
+                                        spanning-tree portfast bpduguard default<br>
+                                        end
+                                    </p>
+                                </div>
+                            </div>
+        
+                            <div class="w3-rest w3-container card w3-card w3-margin">
+                                <h2 class="w3-green w3-padding" onclick="toggle(this);">Interface</h2>
+                                <div>
+                                    <form>
+                                        <label>Interface<br><span></span></label>
+                                        <input class="w3-input" type="text" id="ConfigureBPDUGuardInterface">
+                                    </form>
+                                    <br>
+                                    <p>
+                                        configure terminal<br>
+                                        interface <span class="interface">INTERFACE</span><br>
+                                        spanning-tree bpduguard enable<br>
+                                        end
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+
+                <div class="w3-row w3-margin-bottom">
+                    
+                    
+                </div>
+
+                <div class="w3-row w3-margin-bottom">
+                    
                 </div>
             </section>
             <!-- Switch sec end -->
