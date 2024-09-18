@@ -88,7 +88,7 @@ let listenArr = [
 ];
 
 function toggle(elem) {
-    let container = elem.parentElement.getElementsByTagName('div');
+    let container = elem.parentElement.getElementsByClassName('card');
     container[0].style.display = container[0].style.display == "block" ? "none" : "block";
     
     if(container[0].style.display == 'block') saveToClipboard(elem.parentElement.getElementsByTagName('div')[0]);
