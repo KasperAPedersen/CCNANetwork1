@@ -8,7 +8,6 @@
     </head>
     <body>
         <div class="w3-container">
-
             <!-- Common -->
             <section class="w3-container w3-card w3-margin-bottom">
                 <h1 class="w3-center">Common</h1>
@@ -77,6 +76,74 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="w3-row w3-margin-bottom">
+                    <div class="w3-half w3-container w3-card card w3-margin">
+                        <h2 class="w3-green w3-padding" onclick="toggle(this);">DHCP</h2>
+                        <div>
+                            <form>
+                                <label>Excluded Start address<br><span></span></label>
+                                <input class="w3-input" type="text" id="DHCPExStart">
+
+                                <label>Excluded end address<br><span></span></label>
+                                <input class="w3-input" type="text" id="DHCPExEnd">
+                                
+                                <label>start address<br><span></span></label>
+                                <input class="w3-input" type="text" id="DHCPStart">
+
+                                <label>subnet address<br><span></span></label>
+                                <input class="w3-input" type="text" id="DHCPSubnet">
+                                
+                                <label>domain<br><span></span></label>
+                                <input class="w3-input" type="text" id="DHCPDomain">
+
+                                <label>pool<br><span></span></label>
+                                <input class="w3-input" type="text" id="DHCPPool">
+
+                                <label>default router<br><span></span></label>
+                                <input class="w3-input" type="text" id="DHCPRouter">
+
+                                <label>lease time<br><span>{days [hours [ minutes]] | infinite</span></label>
+                                <input class="w3-input" type="text" id="DHCPLease">
+                            
+                            </form>
+                            <br>
+                            <p>
+                                configure terminal<br>
+                                ip dhcp excluded-address <span class="exStart">START</span> <span class="exEnd">END</span><br>
+                                ip dhcp pool <span class="pool">POOL</span><br>
+                                network <span class="start">EXCLUDED</span> <span class="subnet">SUBNET</span><br>
+                                default-router <span class="router">ROUTER</span><br>
+                                domain-name <span class="domain">DOMAIN</span><br>
+                                lease <span class="lease">LEASE TIME</span><br>
+                                end
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="w3-rest w3-container w3-card card w3-margin">
+                        <h2 class="w3-green w3-padding" onclick="toggle(this);">Static Route</h2>
+                        <div>
+                            <form>
+                                <label>IP Address<br><span></span></label>
+                                <input class="w3-input" type="text" id="StaticRouteIp">
+
+                                <label>Subnet<br><span></span></label>
+                                <input class="w3-input" type="text" id="StaticRouteSubnet">
+                            
+                                <label>Destination IP Address<br><span></span></label>
+                                <input class="w3-input" type="text" id="StaticRouteDest">
+                            
+                            </form>
+                            <br>
+                            <p>
+                                configure terminal<br>
+                                ip route <span class="ip">IP</span> <span class="subnet">SUBNET</span> <span class="dest">DESTINATION</span><br>
+                                end
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </section>
             <!-- common end -->
 
@@ -125,6 +192,43 @@
                                 interface <span class="interface">INT</span><br>
                                 switchport mode <span class="mode">MODE</span><br>
                                 switchport access vlan <span class="id">ID</span><br>
+                                end
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w3-row w3-margin-bottom"></div>
+                    <div class="w3-half w3-container w3-card card w3-margin">
+                        <h2 class="w3-green w3-padding" onclick="toggle(this);">VLAN Access</h2>
+                        <div>
+                            <form>
+                                <label>Interface<br><span></span></label>
+                                <input class="w3-input" type="text" id="VLANAccessInt">
+
+                                <label>VLAN<br><span></span></label>
+                                <input class="w3-input" type="text" id="VLANAccessVLAN">
+                                
+                                <label>Desc<br><span></span></label>
+                                <input class="w3-input" type="text" id="VLANAccessDesc">
+                                
+                                <label>IP Address<br><span></span></label>
+                                <input class="w3-input" type="text" id="VLANAccessIP">
+                                
+                                <label>subnet<br><span></span></label>
+                                <input class="w3-input" type="text" id="VLANAccessSubnet">
+                                
+                                <label>Encapsulation Flag<br><span>[ Native ]</span></label>
+                                <input class="w3-input" type="text" id="VLANAccessEnc">
+                                
+                            </form>
+                            <br>
+                            <p>
+                                configure terminal<br>
+                                interface <span class="int">INT</span>.<span class="vlan">VLAN</span><br>
+                                description <span class="desc">DESC</span><br>
+                                encapsulation dot1q <span class="vlan">VLAN</span> <span class="enc">ENC</span><br>
+                                ip address <span class="ip">START</span> <span class="subnet">SUBNET</span><br>
                                 end
                             </p>
                         </div>
@@ -349,8 +453,12 @@
             <!-- Switch sec end -->
 
             <!-- troubleshoot -->
+             
             <section class="w3-container w3-card w3-margin-bottom">
                 <h1 class="w3-center">troubleshoot</h1>
+                <div class="w3-container w3-card w3-margin-bottom">
+                    <h2 class="w3-center w3-red w3-padding">Tjek kablerne, din idiot!</h2>
+                </div>
 
                 <div class="w3-row w3-margin-bottom">
                     <div class="w3-quarter w3-container w3-card card w3-margin">

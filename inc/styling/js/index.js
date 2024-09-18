@@ -11,6 +11,21 @@ let listenArr = [
     ['ConfigureRouterInterfacesSubnet', 'subnet'],
     ['ConfigureRouterInterfacesDesc', 'desc'],
 
+    // Basic Configuration: DHCP
+    ['DHCPExStart', 'exStart'],
+    ['DHCPExEnd', 'exEnd'],
+    ['DHCPStart', 'start'],
+    ['DHCPSubnet', 'subnet'],
+    ['DHCPDomain', 'domain'],
+    ['DHCPPool', 'pool'],
+    ['DHCPRouter', 'router'],
+    ['DHCPLease', 'lease'],
+
+    // Static Route
+    ['StaticRouteIp', 'ip'],
+    ['StaticRouteSubnet', 'subnet'],
+    ['StaticRouteDest', 'dest'],
+
     // Vlan: Create VLAN
     ['vlanConfigurationID', 'id'],
     ['vlanConfigurationName', 'name'],
@@ -19,6 +34,14 @@ let listenArr = [
     ['vlanPortAssignmentInt', 'interface'],
     ['vlanPortAssignmentMode', 'mode'],
     ['vlanPortAssignmentId', 'id'],
+
+    // VLAN: VLAN Access
+    ['VLANAccessInt', 'int'],
+    ['VLANAccessVLAN', 'vlan'],
+    ['VLANAccessDesc', 'desc'],
+    ['VLANAccessIP', 'ip'],
+    ['VLANAccessSubnet', 'subnet'],
+    ['VLANAccessEnc', 'enc'],
 
     // Port Security: Enable Port Security
     ['enablePortSecurityInterface', 'interface'],
