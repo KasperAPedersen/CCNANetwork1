@@ -1,3 +1,4 @@
+
 let listenArr = [
     // Basic Configuration: Basic Router Configuration
     ['basicRouterConfHostname', 'hostname'],
@@ -81,7 +82,10 @@ function toggle(elem) {
 
 function setValue(c, v) {
     for(let i = 0; i < c.length; i++) {
-        c[i].innerHTML = v.value;
+        let tmp = DOMPurify.sanitize(v.value);
+        console.log(tmp);
+        console.log(v.value);
+        c[i].innerHTML = tmp;
     }
 
     navigator.clipboard.writeText(v.parentElement.parentElement.getElementsByTagName('p')[0].innerText);
