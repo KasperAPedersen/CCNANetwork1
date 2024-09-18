@@ -33,6 +33,7 @@
                             <br>
                             <p>configure terminal<br>
                                 hostname <span class="hostname">HOSTNAME</span><br>
+                                no ip domain-lookup<br>
                                 enable secret <span class="password1">PWORD1</span><br>
                                 line console 0<br>
                                 password <span class="password2">PWORD2</span><br>
@@ -49,7 +50,70 @@
                         </div>
                     </div>
 
+                    <div class="w3-quarter w3-container w3-card card w3-margin">
+                        <h2 class="w3-green w3-padding" onclick="toggle(this);">Interface Conf IPv4</h2>
+                        <div>
+                            <form>
+                                <label>Interface<br><span></span></label>
+                                <input class="w3-input" type="text" id="ConfigureRouterInterfacesName">
+
+                                <label>IPv4<br><span></span></label>
+                                <input class="w3-input" type="text" id="ConfigureRouterInterfacesIp">
+                                
+                                <label>Subnet<br><span></span></label>
+                                <input class="w3-input" type="text" id="ConfigureRouterInterfacesSubnet">
+                                
+                                <label>Description<br><span></span></label>
+                                <input class="w3-input" type="text" id="ConfigureRouterInterfacesDesc">
+                            
+                            </form>
+                            <br>
+                            <p>configure terminal<br>
+                                interface <span class="name">NAME</span><br>
+                                ip address <span class="ip">IP</span> <span class="subnet">SUBNET</span><br>
+                                description <span class="desc">DESC</span><br>
+                                no shutdown<br>
+                                exit</p>
+                        </div>
+                    
+                    </div>
+
                     <div class="w3-rest w3-container w3-card card w3-margin">
+                        <h2 class="w3-green w3-padding" onclick="toggle(this);">Interface Conf IPv6</h2>
+                        <div>
+                            <form>
+                                <label>Interface<br><span></span></label>
+                                <input class="w3-input" type="text" id="InterfaceConfV6Interface">
+
+                                <label>IP<br><span></span></label>
+                                <input class="w3-input" type="text" id="InterfaceConfV6IP">
+                                
+                                <label>Prefix<br><span></span></label>
+                                <input class="w3-input" type="text" id="InterfaceConfV6Prefix">
+                                
+                                <label>Link-local address<br><span></span></label>
+                                <input class="w3-input" type="text" id="InterfaceConfV6LinkLocal">
+
+                                <label>Description<br><span></span></label>
+                                <input class="w3-input" type="text" id="InterfaceConfV6Desc">
+                            
+                            </form>
+                            <br>
+                            <p>
+                                configure terminal<br>
+                                ipv6 unicast-routing<br>
+                                interface <span class="int">INTERFACE</span><br>
+                                ipv6 address <span class="link">LINK-LOCAL</span> link-local<br>
+                                ipv6 address <span class="ip">IP</span>/<span class="prefix">PREFIX</span><br>
+                                description <span class="desc">DESCRIPTION</span><br>
+                                no shutdown<br>
+                                end
+                            </p>
+                        </div>
+                    
+                    </div>
+                    
+                    <!--<div class="w3-rest w3-container w3-card card w3-margin">
                         <h2 class="w3-green w3-padding" onclick="toggle(this);">Interface Configuration</h2>
                         <div>
                             <form>
@@ -74,7 +138,8 @@
                                 no shutdown<br>
                                 exit</p>
                         </div>
-                    </div>
+                    
+                    </div>-->
                 </div>
 
                 <div class="w3-row w3-margin-bottom">
@@ -446,11 +511,11 @@
             <section class="w3-container w3-card w3-margin-bottom">
                 <h1 class="w3-center">troubleshoot</h1>
                 <div class="w3-card w3-padding w3-pale-red w3-leftbar w3-border-red w3-margin-bottom">
-                    <h2 class="w3-center">Tjek kablerne, din idiot!</h2>
+                    <h3 class="w3-center">Tjek kablerne, din idiot!</h3>
                 </div>
 
                 <div class="w3-card w3-padding w3-pale-red w3-leftbar w3-border-red w3-margin-bottom">
-                    <h2 class="w3-center">Tjek om enheden er tændt, klovn!</h2>
+                    <h3 class="w3-center">Tjek om enheden er tændt, klovn!</h3>
                 </div>
 
                 <div class="w3-row w3-margin-bottom">

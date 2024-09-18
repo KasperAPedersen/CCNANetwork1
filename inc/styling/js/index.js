@@ -6,11 +6,18 @@ let listenArr = [
     ['basicRouterConfPword2', 'password2'],
     ['basicRouterConfBanner', 'banner'],
 
-    // Basic Configuration: Router interface configuration
+    // Basic Configuration: Router interface configuration IPv4
     ['ConfigureRouterInterfacesName', 'name'],
     ['ConfigureRouterInterfacesIp', 'ip'],
     ['ConfigureRouterInterfacesSubnet', 'subnet'],
     ['ConfigureRouterInterfacesDesc', 'desc'],
+
+    // Basic Configuration: Router interface configuration IPv6
+    ['InterfaceConfV6Interface', 'int'],
+    ['InterfaceConfV6IP', 'ip'],
+    ['InterfaceConfV6Prefix', 'prefix'],
+    ['InterfaceConfV6LinkLocal', 'link'],
+    ['InterfaceConfV6Desc', 'desc'],
 
     // Basic Configuration: DHCP
     ['DHCPExStart', 'exStart'],
