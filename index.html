@@ -186,8 +186,8 @@
                         </div>
                     </div>
 
-                    <div class="w3-rest w3-container w3-card card w3-margin">
-                        <h2 class="w3-green w3-padding" onclick="toggle(this);">Static Route</h2>
+                    <div class="w3-quarter w3-container w3-card card w3-margin">
+                        <h2 class="w3-green w3-padding" onclick="toggle(this);">Static Route IPv4</h2>
                         <div>
                             <form>
                                 <label>IP Address<br><span></span></label>
@@ -207,6 +207,36 @@
                                 end
                             </p>
                         </div>
+                    </div>
+
+                    <div class="w3-rest w3-container w3-card card w3-margin">
+                        <h2 class="w3-green w3-padding" onclick="toggle(this);">Static Route IPv6</h2>
+                        <div>
+                            <form>
+                                <label>IP Address<br><span></span></label>
+                                <input class="w3-input" type="text" id="StaticRouteV6Ip">
+
+                                <label>Prefix<br><span></span></label>
+                                <input class="w3-input" type="text" id="StaticRouteV6Prefix">
+                            
+                                <label>Interface<br><span>Optional</span></label>
+                                <input class="w3-input" type="text" id="StaticRouteV6Int">
+
+                                <label>Destination IP Address<br><span></span></label>
+                                <input class="w3-input" type="text" id="StaticRouteV6Dest">
+
+                                <label>Distance<br><span></span></label>
+                                <input class="w3-input" type="text" id="StaticRouteV6Dist">
+                            
+                            </form>
+                            <br>
+                            <p>
+                                configure terminal<br>
+                                ipv6 route <span class="ip">IP</span>/<span class="prefix">PREFIX</span> <span class="interface">INTERFACE</span> <span class="dest">DESTINATION</span> <span class="dist">DISTANCE</span><br>
+                                end
+                            </p>
+                        </div>
+                    
                     </div>
                 </div>
             </section>

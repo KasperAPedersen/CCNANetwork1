@@ -29,10 +29,17 @@ let listenArr = [
     ['DHCPRouter', 'router'],
     ['DHCPLease', 'lease'],
 
-    // Static Route
+    // Static Route IPv4
     ['StaticRouteIp', 'ip'],
     ['StaticRouteSubnet', 'subnet'],
     ['StaticRouteDest', 'dest'],
+
+    // Static Route IPv6
+    ['StaticRouteV6Ip', 'ip'],
+    ['StaticRouteV6Prefix', 'prefix'],
+    ['StaticRouteV6Int', 'interface'],
+    ['StaticRouteV6Dest', 'dest'],
+    ['StaticRouteV6Dist', 'dist'],
 
     // Vlan: Create VLAN
     ['vlanConfigurationID', 'id'],
